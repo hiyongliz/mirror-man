@@ -1,7 +1,7 @@
 import typer
 import shutil
 from datetime import datetime
-from mirror_data import apt_sources
+from mirror_man.mirror_data import apt_sources
 import subprocess
 
 
@@ -64,7 +64,7 @@ def aliyun():
     if os.startswith("Ubuntu"):
         set_apt_sources(apt_sources[os.lower().replace(" ", "_").replace(".", "")[:11]])
     elif os.startswith("CentOS"):
-        set_yum_repos("# Aliyun CentOS repository configuration goes here")
+        set_yum_repos()
 
 
 @app.command()
@@ -74,8 +74,7 @@ def huaweiyun():
 
 
 def main():
-    print("Hello from mirror-man!")
-
+    app()
 
 if __name__ == "__main__":
-    app()
+    main()
