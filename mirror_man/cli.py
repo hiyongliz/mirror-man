@@ -67,7 +67,7 @@ def set_apt_sources(source: str):
     try:
         with open(file_path, "w") as f:
             f.write(source)
-        print(f"APT sources updated.")
+        print("APT sources updated.")
     except Exception as e:
         print(f"Failed to update APT sources: {e}")
         raise
