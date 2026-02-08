@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Auto-generated version file
+mirror_man/_version.py
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
