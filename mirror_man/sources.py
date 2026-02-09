@@ -29,8 +29,10 @@ def set_yum_repos(base_repo_url: str, epel_repo_url: str) -> None:
     base_repo_path = "/etc/yum.repos.d/CentOS-Base.repo"
     epel_repo_path = "/etc/yum.repos.d/epel.repo"
 
-    backup_file(base_repo_path)
-    backup_file(epel_repo_path)
+    if Path(base_repo_path).exists():
+        backup_file(base_repo_path)
+    if Path(epel_repo_path).exists():
+        backup_file(epel_repo_path)
 
     subprocess.run(
         ["curl", "-fsSL", "-o", base_repo_path, base_repo_url], check=True
